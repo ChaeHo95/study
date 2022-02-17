@@ -1,0 +1,26 @@
+.photo-box{
+    width: 500px;
+    height: 500px;
+    background: skyblue;
+}
+
+@media screen and (max-width:1000px){
+    .photo-box{
+        width: 400px;
+        background: tomato;
+    }
+}
+@media screen and (max-width:700px) {
+    .photo-box{
+        width: 300px;
+        background: violet;
+    }
+    
+}
+@media screen and (max-width:370px) {
+    .photo-box{
+        width: 100px;
+        background: yellow;
+    }
+    
+}

@@ -1,0 +1,153 @@
+body{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-image: url(PhotoBackground.gif);
+    background-repeat: repeat;
+    background-size: cover;    
+}
+h1{
+    margin: 20px;
+}
+
+
+
+img{
+    width: inherit;
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    transition: all 1s linear;
+}
+
+.item:nth-child(1):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(2):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(3):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(4):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(5):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(6):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(7):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(8):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(9):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(10):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(11):hover img{
+    transform: scale(1.5);
+}
+.item:nth-child(12):hover img{
+    transform: scale(1.5);
+}
+#header{
+    color: rgb(100, 4, 4);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Fleur De Leah', cursive;
+    font-size: 60px;
+    height: 200px;
+}
+#body{
+    color: aliceblue;
+    flex-grow: 1;
+    display: flex;
+}
+#sidebar{
+    color: rgb(100, 4, 4);
+    flex-direction: column;
+    font-family: 'Cookie', cursive;
+    flex-shrink: 0;
+    width: 10%;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-size: 50px;
+}
+#contents{
+    color: aliceblue;
+    flex-grow: 1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow: overlay;
+    padding-right: 50px;
+}
+#contents::-webkit-scrollbar{
+    display: none;
+}
+.item{
+    margin: 50px;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    text-align:center;
+}
+#footer{
+    margin-top: 30px;
+    padding-right: 30px;
+    display: flex;
+    color: rgba(240, 248, 255, 0.616);
+    height: 5vh;
+    justify-content: end;
+}
+.modal{
+    color: red;
+    font-size: 20px;
+    display: flex;
+    width: 35%;
+    height: 35%;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid rgb(124, 9, 9);
+    background:black;
+    top:50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.header{
+    font-size: 30px;
+}
+.Body::-webkit-scrollbar{
+    display: none;
+}
+.Body{
+    display: flex;
+    color:white;
+    overflow: overlay;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(124, 9, 9);
+}
+.Footer{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    background-color: black;
+    color:red;
+    
+}

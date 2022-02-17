@@ -1,0 +1,56 @@
+body{
+   
+    padding: 0;
+    margin: 0;
+}
+#parent{
+    background: skyblue;
+    border: 1px solid blue;
+    height: 200px;
+    width: 600px;
+    text-align: center;
+}
+#child{
+    border: 1px solid black;
+    background: tomato;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+
+
+@media screen and (max-width:600px){
+    #parent{
+        border: 1px solid blue;
+        height: 420px;
+        background: brown;
+    }
+    #child{
+        border: 1px solid black;
+        background: tomato;
+        width: 90% ;    
+        text-align: center;
+    }
+#child:nth-child(2){
+    margin-top: 17px;
+}
+
+}
+@media screen and (max-width:400px) {
+    #parent{
+        border: 1px solid blue;
+        height: 420px;
+        background: violet;
+    }
+    #child{
+        border: 1px solid black;
+        background: tomato;
+        width: 90% ;
+        text-align: center;
+    }    
+    #child:nth-child(2){
+        margin-top: 17px;
+    }
+
+}

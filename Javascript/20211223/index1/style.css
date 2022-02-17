@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 200vh;
+}
+#section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 400px;
+}
+.contents{
+    background: brown;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    margin-right: 10px;
+    transition: all .5s ease;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+.up{
+    /* y 좌표를 아래쪽으로 100px 만큼 내림 */
+    transform: translate(0,100px);
+}
+.show{
+    opacity: 1;
+    transform: none;
+}

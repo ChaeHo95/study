@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.values{
+    height: auto;
+    display: flex;
+    background-color: skyblue;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+
+}
+.value{
+    border-radius: 50%;
+    background-color: bisque;
+    margin: 10px;
+    width: 20%;
+    height: 80%;
+
+}

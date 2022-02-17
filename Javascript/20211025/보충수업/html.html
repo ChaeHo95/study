@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge\">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {margin: 0; padding: 0;}
+        body{ font-family: 'Times New Roman', Times, serif;}
+        li{list-style: none;}
+        a{ text-decoration: none;}
+        img{border: 0;}
+
+        #main_header{
+        /*중앙 정렬*/
+        width: 960px; margin: 0 auto;
+            
+        /*절대 좌표*/
+        height: 160px; position: relative;
+        }
+
+        #main_header > #title{
+        position: absolute;
+        left: 20px; top: 30px;
+        }
+        #main_header > #main_gnb{
+        position: absolute;
+        right: 0; top: 0;
+        }
+        #main_header > #main_lnb{
+        position: absolute;
+        right: 0; bottom: 10px;
+        }
+        #title{font-family: 'Dancing Script', cursive;}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>웹페이지 만들기</title>
+</head>
+<body>
+<header id = "main_header">
+<!--헤더공간 -->
+    <div id="title">
+        <h1>Rint Development</h1>
+        <h2>HTML5 + CSS3 Basic</h2>
+    </div>
+    <nav id = "main_gnb">
+        <!--nav 상단 -->
+        <ul>
+            <li><a herf = "#">Web</a></li>
+            <li><a herf = "#">Mobile</a></li>
+            <li><a herf = "#">Game</a></li>
+            <li><a herf = "#">Simulation</a></li>
+            <li><a herf = "#">Date</a></li>
+        </ul>
+    </nav>
+    <nav id = "main_lnb">
+        <!--nav 하단 -->
+        <ul>
+            <li><a herf = "#">HTML5</a></li>
+            <li><a herf = "#">CSS3</a></li>
+            <li><a herf = "#">JavaScript</a></li>
+            <li><a herf = "#">JQuery</a></li>
+            <li><a herf = "#">Node.js</a></li>
+        </ul>
+    </nav>
+</header>
+<section>
+    <!--중앙 내용물 -->
+</section>
+<aside>
+    <!--측면 내용물 -->
+</aside>
+<footer>
+    <!--하단 내용물 -->
+</footer>
+</body>
+</html>

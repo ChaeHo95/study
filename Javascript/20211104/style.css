@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    /* flex-direction: row;
+    align-items: flex-start; */
+    background: skyblue;
+    flex-wrap: wrap;
+    /* align-content: center; */
+    width: 100px; 
+    height: 200px;
+
+}
+.item{
+    background: tomato;
+    margin: 5px;
+    flex: 1 1 40%;
+/* }
+.item:nth-child(1){
+    flex-grow: 1;
+}
+.item:nth-child(2){
+    flex-grow: 2;
+
+}
+.item:nth-child(3){
+    flex-grow: 1;
+} 
+.parent{
+    background: tan;
+    margin-top: 50px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.child{
+    width: 30%;
+    height: 100px;
+    background: violet;
+    margin: 10px;
+} */

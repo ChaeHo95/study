@@ -1,0 +1,22 @@
+h2,h4{
+    text-align: center;
+}
+
+#search{
+    text-align: center;
+}
+.container{
+    border: 5px solid white;
+}
+.imageFlex1{
+    background-color: rgba(228, 122, 104, 0.548);
+    width: 675px;
+    border: 5px solid rgba(228, 122, 104,0.548);
+    margin: 0 auto;
+}
+.imageFlex1 img{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+   
+}
