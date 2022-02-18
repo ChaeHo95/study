@@ -7,6 +7,15 @@ import Friend from './Friend';
 import Person2 from './Person2';
 import Book from './Book';
 import Animal2 from './Animal2';
+import NameTag from './NameTag';
+import Counter from './Counter';
+import Counter2 from './Counter2';
+import Counter3 from './Counter3';
+import Change from './Change';
+import Cart from './Cart'
+import PhotoGallery from './PhotoGallery';
+import CommentFilter from './CommentFilter';
+
 
 const friend =[
   {name: 'victoria', age: 13, city: 'seoul'},
@@ -50,6 +59,23 @@ function App() {
         <Book/>
         <br/>문제 4번
         <Animal2 {...animal}/>
+        -----------20220218------------
+        <NameTag/>
+        ------------------------------
+        <Counter/>
+        <Counter2/>
+        <br/>문제 1번
+        <Counter3/>
+        <br/>문제 2번
+        <Change/>
+        <br/>문제 3번
+        <Cart/>
+        <br/>문제 4번
+        <PhotoGallery/>
+        <br/>문제 5번
+        <CommentFilter comment="너는 진짜 못말리는 바보 똥개다"/>
+        <CommentFilter comment="임마! 너 그렇게 살지마! 그지 새끼야 !"/>
+        <CommentFilter comment="야 씨~ 너 죽을래? 진짜 ! 콱! 마! "/>
 
 
       </header>
