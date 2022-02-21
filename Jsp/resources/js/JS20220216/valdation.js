@@ -45,6 +45,5 @@ function CheckAddProduct(){
         return false
     }
 
-    console.log(document.newProduct.value)
     document.newProduct.submit()
 }

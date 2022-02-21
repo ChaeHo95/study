@@ -8,6 +8,7 @@
  <%@ page import="dao_20220216.Product" %>
  <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="dao_20220216.ProductRepository" %>
+ <%@ page errorPage="exceptionNoProductId.jsp" %>
 <jsp:useBean id="productDAO" class="dao_20220216.ProductRepository" scope="session"/>
 <html>
 <head>
