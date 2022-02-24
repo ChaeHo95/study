@@ -1,0 +1,25 @@
+.color-box{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: bold;
+    color: white;
+  }
+  .red{
+    background: red;
+  }
+  .blue{
+    background: blue;
+  }
+  .green{
+    background: green;
+  }
+  .orange{
+    background: orange;
+  }
+  .skyblue{
+    background: skyblue;
+  }
