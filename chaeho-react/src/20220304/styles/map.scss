@@ -1,0 +1,58 @@
+@use "sass:map";
+
+// 버튼 스타일을 Map 객체로 정의함 (Map : key - value)
+$btn-style: (
+  icon-url: "http://simpleicon.com/wp-content/uploads/rocket.png",
+  background-color: brown,
+  hover-color: yellow,
+  cursor: pointer,
+  padding: 10px,
+  border-radius: 10px,
+  border: none,
+  btn-size: "large",
+  font-size: 20px,
+  default-width: 50px,
+  default-height: 50px,
+);
+
+// 중앙정렬은 자주 사용하므로 믹스인로 정의함
+@mixin alignCenter(){ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// 버튼 크기도 다양하므로 믹스인으로 정의함
+@mixin sizeOfButtn($btn-obj){
+  height: map.get($btn-obj, default-height) * 2;
+
+  @if (map.has-key($btn-obj, btn-size) and map.get($btn-obj, btn-size) == "large"){
+    width: map.get($btn-obj, default-width) * 6;
+  }@else if (map.has-key($btn-obj, btn-size) and map.get($btn-obj, btn-size) == "medium"){
+    width: map.get($btn-obj, default-width) * 4;
+  }@else if (map.has-key($btn-obj, btn-size) and map.get($btn-obj, btn-size) == "small"){
+    width: map.get($btn-obj, default-width) * 2;
+  }
+}
+
+.checkin-btn{
+  @include alignCenter(); // 중앙정렬
+  @include sizeOfButtn($btn-style); // 버튼크기 설정
+  margin: map.get($btn-style, default-height) * 2 auto;
+
+  // 나머지 속성 설정
+  @each $key, $value in $btn-style{
+    #{$key}: $value;
+  }
+
+  &:hover{
+    background-color: map.get($btn-style, hover-color);
+  }
+  
+  // 아이콘 설정
+  .bg-img{
+    background: url(map.get($btn-style, icon-url)), no-repeat;
+    background-size: cover;
+    width: map.get($btn-style, default-width);
+    height: map.get($btn-style, default-height);
+  }
+}

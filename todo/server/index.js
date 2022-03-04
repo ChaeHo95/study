@@ -6,7 +6,8 @@ var mongoose = require('mongoose')
 var routes = require('./src/routes')
 const port = 5000
 var corsOptions = { // CORS 옵션
-    origin: `http://localhost:${port}`,
+    // 와일드 카드 '*' 전체 다 받음
+    origin: '*', // `http://localhost:${port}`, // 같은것 포트만 받겠다.
     credentials: true
 }
 const CONNECT_URL = 'mongodb://localhost:27017/chaeho'

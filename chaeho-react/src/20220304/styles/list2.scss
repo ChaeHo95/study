@@ -1,0 +1,33 @@
+@use "sass:list";
+
+$fruitsA: "apple", "banana", "orange", "watermelon"; // 첫번째 과일 리스트 정의하기
+$fruitsB: "watermelon", "strawberry", "raspberry"; // 두번째 과일 리스트 정의하기
+$fruits: list.join($fruitsA, $fruitsB);
+
+.background{
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .fruits{
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    width: 150px;
+    font-weight: bold;
+
+    @each $name in $fruits{
+      &.#{$name}{
+        width: 50px * list.length($fruits);
+      }
+      &.#{$name}::after{
+        content: $name;
+      }
+    }
+  }
+}

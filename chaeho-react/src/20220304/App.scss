@@ -1,0 +1,57 @@
+@import './styles/utils.scss';
+
+.background{
+  // background-color: $orange;
+
+  width: $default-width * 3;
+  height: $default-height * 2;
+  font-size: $default-font-size - 5px;
+
+  margin: $default-width auto;
+  text-align: center;
+
+  // 가로정렬
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+   // photo-box 는 background 의 자식요소이므로 중첩됨
+  .photo-box{
+    // border: 1px solid $orange;
+    padding-left: 10px;
+
+    // photo 는 photo-box 의 자식요소이므로 중첩됨
+    .photo{
+      width: $default-width * 3;
+      height: $default-height * 6;
+      overflow: hidden;
+
+      &.img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    // name 은 photo-box 의 자식요소이므로 중첩됨
+    .name{
+      font-size: $default-font-size - 5px;
+      font-weight: bold;
+      padding-top: 10px;
+
+      &.red{
+        background-color: $red;
+        color: $name-color;
+        @include border(dotted); // 믹스인 사용
+      }
+      &.blue{
+        background-color: $blue;
+        color: $name-color;
+        @include border(dashed solid); // 믹스인 사용
+      }
+      &.yellow{
+        background-color: $yellow;
+        color: $name-color;
+        @include border(groove); // 믹스인 사용
+      }
+    }
+  }
+}

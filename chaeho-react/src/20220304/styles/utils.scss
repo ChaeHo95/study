@@ -1,0 +1,13 @@
+$orange: orange;
+$red: red;
+$blue: blue;
+$yellow: yellow;
+$name-color: white;
+
+$default-width: 100px; // 기본 너비 설정
+$default-height: 50px; // 기본 높이 설정
+$default-font-size: 20px; // 기본 글꼴 크기 설정
+
+@mixin border($style){ // 재사용되는 스타일 블록 정의
+  border-style: $style;
+}
