@@ -5,63 +5,65 @@ import java.util.Map;
 import java.util.Vector;
 import common.DBConnPool;
 
-public class MVCBoardDAO extends DBConnPool  {
+public class MVCBoardDAO extends DBConnPool { //ì»¤ë„¥ì…˜í’€ ìƒì†
 	public MVCBoardDAO() {
 		super();
 	}
-	
-	//[¸ñ·Ïº¸±â]
-	// °Ë»ö Á¶°Ç¿¡ ¸Â´Â °Ô½Ã¹°ÀÇ °³¼ö¸¦ ¹İÈ¯ÇÕ´Ï´Ù.
+
+	//[ëª©ë¡ë³´ê¸°]
+	// ê²€ìƒ‰ ì¡°ê±´ì— ë§ëŠ” ê²Œì‹œë¬¼ì˜ ê°œìˆ˜ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
 	public int selectCount(Map<String, Object> map) {
 		int totalCount = 0;
-		//Äõ¸®¹® ÁØºñ
-		String query = "SELECT COUNT(*) FROM mvcboard ";
-		//°Ë»öÁ¶°ÇÀÌ ÀÖ´Ù¸é whereÀı·Î Ãß°¡
-		if(map.get("searchWord") != null) {
-			query += " where " + map.get("searchField") + " "
-					+ " Like '%" + map.get("searchWord") + "%'";
+		//ì¿¼ë¦¬ë¬¸ ì¤€ë¹„
+		String query = "SELECT COUNT(*) FROM mvcboard";
+		//ê²€ìƒ‰ì¡°ê±´ì´ ìˆë‹¤ë©´ whereì ˆë¡œ ì¶”ê°€
+		if (map.get("searchWord") != null) {
+			query += " WHERE " + map.get("searchField") + " "
+					+ " LIKE '%" + map.get("searchWord") + "%'";
 		}
 		try {
-			stmt = con.createStatement(); //Äõ¸®¹®»ı¼º
-			rs = stmt.executeQuery(query); //Äõ¸®¹®½ÇÇà
+			stmt = con.createStatement(); //ì¿¼ë¦¬ë¬¸ìƒì„±
+			rs = stmt.executeQuery(query); //ì¿¼ë¦¬ë¬¸ ì‹¤í–‰
 			rs.next();
-			totalCount = rs.getInt(1); //°Ë»öµÈ °Ô½Ã¹° °³¼ö ÀúÀå
+			totalCount = rs.getInt(1); //ê²€ìƒ‰ëœ ê²Œì‹œë¬¼ ê°œìˆ˜ ì €ì¥
 		}
-		catch(Exception e) {
-			System.out.println("°Ô½Ã¹° Ä«¿îÆ® Áß ¿¹¿Ü ¹ß»ı");
+		catch (Exception e) {
+			System.out.println("ê²Œì‹œë¬¼ ì¹´ìš´íŠ¸ ì¤‘ ì˜ˆì™¸ ë°œìƒ");
 			e.printStackTrace();
 		}
-		return totalCount;
+
+		return totalCount; //ê²Œì‹œë¬¼ ê°œìˆ˜ë¥¼ ì„œë¸”ë¦¿ìœ¼ë¡œ ë°˜í™˜
 	}
-	
-	//[¸ñ·Ïº¸±â]
-	// °Ë»ö Á¶°Ç¿¡ ¸Â´Â °Ô½Ã¹°ÀÇ ¸ñ·ÏÀ» ¹İÈ¯ÇÕ´Ï´Ù(ÆäÀÌÂ¡ ±â´É Áö¿ø).
-	public List<MVCBoardDTO> selectListPage(Map<String, Object> map){
+
+	// ê²€ìƒ‰ ì¡°ê±´ì— ë§ëŠ” ê²Œì‹œë¬¼ ëª©ë¡ì„ ë°˜í™˜í•©ë‹ˆë‹¤(í˜ì´ì§• ê¸°ëŠ¥ ì§€ì›).
+	public List<MVCBoardDTO> selectListPage(Map<String,Object> map) {
 		List<MVCBoardDTO> board = new Vector<MVCBoardDTO>();
-		String query = " SELECT * FROM ( "
-				     + " SELECT Tb.*, ROWNUM rNum FROM ( "
-				     + "    select * from mvcboard ";
+		String query = " "
+				+ "SELECT * FROM ( "
+				+ "    SELECT Tb.*, ROWNUM rNum FROM ( "
+				+ "        SELECT * FROM mvcboard ";
+
 		if (map.get("searchWord") != null)
 		{
-			query += " where " + map.get("searchField")
-				  + " Like '%" + map.get("searchWord") + "%' ";
+			query += " WHERE " + map.get("searchField")
+					+ " LIKE '%" + map.get("searchWord") + "%' ";
 		}
-		
-		query   += "  order by idx desc "
-				+  "  )Tb "
-				+  "  ) "
-				+  " where rNum between ? and ? ";
-		
+
+		query += "        ORDER BY idx DESC "
+				+ "    ) Tb "
+				+ " ) "
+				+ " WHERE rNum BETWEEN ? AND ?";
+
 		try {
 			psmt = con.prepareStatement(query);
 			psmt.setString(1, map.get("start").toString());
 			psmt.setString(2, map.get("end").toString());
 			rs = psmt.executeQuery();
-			
-			// ¹İÈ¯µÈ °Ô½Ã¹° ¸ñ·ÏÀ» ListÄÃ·º¼Ç¿¡ Ãß°¡
+
+			// ë°˜í™˜ëœ ê²Œì‹œë¬¼ ëª©ë¡ì„ List ì»¬ë ‰ì…˜ì— ì¶”ê°€
 			while (rs.next()) {
 				MVCBoardDTO dto = new MVCBoardDTO();
-				
+
 				dto.setIdx(rs.getString(1));
 				dto.setName(rs.getString(2));
 				dto.setTitle(rs.getString(3));
@@ -72,16 +74,42 @@ public class MVCBoardDAO extends DBConnPool  {
 				dto.setDowncount(rs.getInt(8));
 				dto.setPass(rs.getString(9));
 				dto.setVisitcount(rs.getInt(10));
-				
+
 				board.add(dto);
 			}
 		}
-		catch(Exception e) {
-			System.out.println("°Ô½Ã¹° Á¶È¸ Áß ¿¹¿Ü ¹ß»ı");
+		catch (Exception e) {
+			System.out.println("ê²Œì‹œë¬¼ ì¡°íšŒ ì¤‘ ì˜ˆì™¸ ë°œìƒ");
 			e.printStackTrace();
 		}
-		return board;
+		return board; //ëª©ë¡ë°˜í™˜
 	}
+
+	// [ê¸€ì“°ê¸°] ìœ„í•œ ì¶”ê°€ë‚´ìš©
+	// ê²Œì‹œê¸€ ë°ì´í„°ë¥¼ ë°›ì•„ DBì— ì¶”ê°€í•©ë‹ˆë‹¤(íŒŒì¼ ì—…ë¡œë“œ ì§€ì›).
+	public int insertWrite(MVCBoardDTO dto) {
+		int result = 0;
+		try {
+			String query = "INSERT INTO mvcboard ( "
+					+ " idx, name, title, content, ofile, sfile, pass) "
+					+ " VALUES ( "
+					+ " seq_board_num.NEXTVAL,?,?,?,?,?,?)";
+			psmt = con.prepareStatement(query);
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getTitle());
+			psmt.setString(3, dto.getContent());
+			psmt.setString(4, dto.getOfile());
+			psmt.setString(5, dto.getSfile());
+			psmt.setString(6, dto.getPass());
+			result = psmt.executeUpdate();
+		}
+		catch (Exception e) {
+			System.out.println("ê²Œì‹œë¬¼ ì…ë ¥ ì¤‘ ì˜ˆì™¸ ë°œìƒ");
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }
 
 

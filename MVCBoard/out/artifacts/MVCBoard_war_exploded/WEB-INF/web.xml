@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <display-name>M2Board</display-name>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
@@ -23,13 +22,13 @@
         <param-value>5</param-value>
     </context-param>
 
-    <!-- [목록보기]서블릿 매핑-->
-    <servlet>
-        <servlet-name>MVCBoardList</servlet-name>
-        <servlet-class>model2.mvcboard.ListController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MVCBoardList</servlet-name>
-        <url-pattern>/mvcboard/list.do</url-pattern>
-    </servlet-mapping>
+<!--    &lt;!&ndash;[목록보기]서블릿 매핑&ndash;&gt;-->
+<!--    <servlet>-->
+<!--        <servlet-name>MVCBoardList</servlet-name>-->
+<!--        <servlet-class>model2.mvcboard.ListController</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>MVCBoardList</servlet-name>-->
+<!--        <url-pattern>*.do</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>
